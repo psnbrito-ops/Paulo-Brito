@@ -6,330 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paulo Brito - Técnico de informática</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        header {
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-			background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed;
-			background-repeat: no-repeat;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-		    position: relative;
-			z-index: 2;
-			text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-		/* Estilos adicionais para o formulário */
-			.contact-form input:focus,
-			.contact-form select:focus,
-			.contact-form textarea:focus {
-			outline: 2px solid #f0c14b;
-			background-color: #444 !important;
-		}
-
-		.contact-form button:hover {
-			background-color: #e0b143 !important;
-			transform: translateY(-2px);
-			transition: all 0.3s ease;
-		}
-
-		/* Mensagem de sucesso do Formspree */
-		.formspree-success {
-			background-color: #4CAF50;
-			color: white;
-			padding: 1rem;
-			border-radius: 5px;
-			margin-top: 1rem;
-		}
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 1.5rem;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #f0c14b;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin: 2rem 0 2rem;
-            position: relative;
-        }
-
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: #f0c14b;
-            margin: 0.5rem auto;
-        }
-
-        .about-section {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .about-image img {
-            width: 125%;
-            height: auto;
-            display: block;
-        }
-
-        .about-text {
-            flex: 2;
-        }
-		
-		.portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .portfolio-item {
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .portfolio-image {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .portfolio-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .portfolio-item:hover .portfolio-image img {
-            transform: scale(1.05);
-        }
-
-        .portfolio-info {
-            padding: 1.5rem;
-        }
-
-        .portfolio-info h3 {
-            margin-bottom: 0.5rem;
-            color: #222;
-        }
-
-        .portfolio-info p {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #f0c14b;
-        }
-
-        .contact-section {
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 0rem 0;
-            text-align: center;
-        }
-
-        .contact-info {
-            margin-bottom: 2rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #333;
-            color: #fff;
-            font-size: 1.3rem;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .social-links a:hover {
-            background-color: #f0c14b;
-            transform: translateY(-3px);
-        }
-		
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        footer {
-            background-color: #111;
-            color: #777;
-            text-align: center;
-            padding: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .about-section {
-                flex-direction: column;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Modal para imagens */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 80%;
-            max-height: 80%;
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-		
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-		<div style="height: 40px;"></div>
+        <div class="header-spacer"></div>
         <div class="header-content">
-           <img src="image/Logo PB Branco.png" alt="Paulo Brito" style="height: 200px; margin-bottom: 10px;">
+            <img src="image/Logo PB Branco.png" alt="Paulo Brito">
             <p class="subtitle">Informático, Web Designer & Criativo Gráfico e Visual</p>
             <nav>
                 <ul>
                     <li><a href="#about">Sobre</a></li>
-                    <li><a href="#Serviços">Serviços</a></li>					
+                    <li><a href="#Serviços">Serviços</a></li>                    
                     <li><a href="#portfolio">Portfólio</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
@@ -345,17 +33,16 @@
                     <img src="image/paulo.jpg" alt="Paulo Brito">
                 </div>
                 <div class="about-text">
-                    <p>Sou Paulo Brito, com formação técnica de Informática de Gestão em Portugal, e ao longo dos anos tenho vindo a construir uma carreira sólida e versátil no mundo digital. A minha experiência abrange várias áreas, desde o design gráfico — onde crio materiais como flyers, postais, posters, convites de aniversário e de casamentos, menus para restaurantes e cartões de visita, tanto para impressão quanto para publicação em redes sociais — até à gestão de presenças digitais.</p></br> 
-                    <p>Trabalho também na criação de páginas web personalizadas, adaptadas às necessidades específicas de cada cliente. Cada projeto é pensado com detalhe, tendo como objetivo não só a estética, mas também a funcionalidade e a eficácia na comunicação.</p></br> 
+                    <p>Sou Paulo Brito, com formação técnica de Informática de Gestão em Portugal, e ao longo dos anos tenho vindo a construir uma carreira sólida e versátil no mundo digital. A minha experiência abrange várias áreas, desde o design gráfico — onde crio materiais como flyers, postais, posters, convites de aniversário e de casamentos, menus para restaurantes e cartões de visita, tanto para impressão quanto para publicação em redes sociais — até à gestão de presenças digitais.</p><br> 
+                    <p>Trabalho também na criação de páginas web personalizadas, adaptadas às necessidades específicas de cada cliente. Cada projeto é pensado com detalhe, tendo como objetivo não só a estética, mas também a funcionalidade e a eficácia na comunicação.</p><br> 
                     <p>Com anos de experiência no setor, valorizo o contacto direto com os clientes, a escuta ativa e a capacidade de transformar ideias em resultados concretos. Se procura alguém que combine conhecimento técnico, criatividade e compromisso, estou aqui para ajudar.</p>
                 </div>
             </div>
         </section>
-		
+
         <section id="Serviços">
             <h2 class="section-title">Meus Serviços</h2>
             <div class="portfolio-grid">
-                <!-- Item 1 -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="image/Design.png" alt="Design gráfico" class="portfolio-img">
@@ -366,7 +53,6 @@
                     </div>
                 </div>
 
-                <!-- Item 2  -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="image/webpages.jpg" alt="Páginas Web" class="portfolio-img">
@@ -377,7 +63,6 @@
                     </div>
                 </div>
 
-                <!-- Item 3  -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="image/inforservice.png" alt="Serviços Informáticos" class="portfolio-img">
@@ -388,12 +73,11 @@
                     </div>
                 </div>
             </div> 
-        </section>	
+        </section>    
 
-		<section id="portfolio">
+        <section id="portfolio">
             <h2 class="section-title">Meu Portofólio</h2>
             <div class="portfolio-grid">
-                <!-- Item 1  -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="image/grafismopb.png" alt="Meus trabalhos" class="portfolio-img">
@@ -405,19 +89,17 @@
                     </div>
                 </div>
 
-                <!-- Item 2  -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="image/websimone.png" alt="Simone Delgado" class="portfolio-img">
                     </div>
                     <div class="portfolio-info">
                         <h3>Página Web - Simone Delgado</h3>
-                        <p>Elaboração da página de ‘internet’ da Psicóloga Dr.ᵃ Simone Delgado.</p>
-                        <a href="https://simonedelgado.cv/" class="btn">Visite a Pagina</a>
+                        <p>Elaboração da página de 'internet' da Psicóloga Dr.ª Simone Delgado.</p>
+                        <a href="https://simonedelgado.cv/" class="btn" target="_blank">Visite a Pagina</a>
                     </div>
                 </div>
 
-                <!-- Item 3  -->
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="image/Logo Liga.jpg" alt="Liga Juvenil" class="portfolio-img">
@@ -425,119 +107,84 @@
                     <div class="portfolio-info">
                         <h3>Liga Juvenil Futebol do Sal</h3>
                         <p>Gestão, criação e elaboração dos elementos gráficos da Página do Facebook da Liga de Futebol Juvenil do Sal.</p>
-                        <a href="https://www.facebook.com/ligafuteboljuvenilsal" class="btn">Ver Detalhes</a>
+                        <a href="https://www.facebook.com/ligafuteboljuvenilsal" class="btn" target="_blank">Ver Detalhes</a>
                     </div>
                 </div>
             </div> 
         </section>
     </div>
 
-	<section id="contact" class="contact-section">
+    <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">Formulário de Contato</h2>
-            <p class="section-subtitle">Entre em contacto para solicitar informações, esclarecimentos ou orçamentos</p>			
-		<div class="contact-form" style="margin-top: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-		<form action="https://formspree.io/f/myzndnkz" method="POST">
-			<div class="form-group" style="margin-bottom: 1rem; text-align: left;">
-				<label for="nome" style="display: block; margin-bottom: 0.5rem; color: #fff;">Nome Completo:</label>
-				<input type="text" id="nome" name="nome" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background-color: #333; color: #fff;">
-			</div>
+            <h2 class="section-title light">Formulário de Contato</h2>
+            <p class="section-subtitle">Entre em contacto para solicitar informações, esclarecimentos ou orçamentos</p>            
 
-			<div class="form-group" style="margin-bottom: 1rem; text-align: left;">
-				<label for="email" style="display: block; margin-bottom: 0.5rem; color: #fff;">Email:</label>
-				<input type="email" id="email" name="email" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background-color: #333; color: #fff;">
-			</div>
-			
-			<div class="form-group" style="margin-bottom: 1rem; text-align: left;">
-				<label for="telefone" style="display: block; margin-bottom: 0.5rem; color: #fff;">Telefone:</label>
-				<input type="tel" id="telefone" name="telefone" 
-					   required 
-					   style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background-color: #333; color: #fff;">
-			</div>
+            <div class="contact-form-wrapper">
+                <form action="https://formspree.io/f/myzndnkz" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
 
-			<div class="form-group" style="margin-bottom: 1rem; text-align: left;">
-				<label for="tipo" style="display: block; margin-bottom: 0.5rem; color: #fff;">Tipo de Informação:</label>
-				<select id="tipo" name="tipo" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background-color: #333; color: #fff;">
-					<option value="">Selecione uma opção</option>
-					<option value="Design Gráfico">Design Gráfico</option>
-					<option value="Webpages Design">Webpages Design</option>
-					<option value="Serviços Informáticos">Serviços Informáticos</option>
-					<option value="Outros">Outros</option>
-				</select>
-			</div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-			<div class="form-group" style="margin-bottom: 1rem; text-align: left;">
-				<label for="mensagem" style="display: block; margin-bottom: 0.5rem; color: #fff;">Mensagem:</label>
-				<textarea id="mensagem" name="mensagem" required rows="5" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background-color: #333; color: #fff; resize: vertical;"></textarea>
-			</div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
 
-			<button type="submit" class="btn" style="background-color: #f0c14b; color: #1a1a1a; border: none; cursor: pointer; font-weight: bold; width: 100%; padding: 1rem;">
-				<i class="fas fa-paper-plane"></i> Enviar Mensagem
-			</button>
-		</form>
-		<h2 class="section-title"></h2>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Informação:</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="Design Gráfico">Design Gráfico</option>
+                            <option value="Webpages Design">Webpages Design</option>
+                            <option value="Serviços Informáticos">Serviços Informáticos</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" required rows="5"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+
             <div class="contact-info">
                 <p><i class="fas fa-envelope"></i> psnbrito@gmail.com</p>
                 <p><i class="fas fa-phone"></i> (+238) 996 77 24</p>
                 <p><i class="fas fa-map-marker-alt"></i> Bairro Novo II, Cidade de Espargos - Cabo Verde</p>
             </div>
+
             <div class="social-links">
-                <a href="https://instagram.com/__paulo_brito__" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/britopaulo23" title="Facebook"><i class="fab fa-facebook"></i></a>
-	</div>
+                <a href="https://instagram.com/__paulo_brito__" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/britopaulo23" title="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
         </div>
-    </section>	
-	
+    </section>    
+
     <footer>
-        <img src="image/Logo PB Branco.png" alt="Paulo Brito" style="height: 40px; margin-bottom: 15px;">
+        <img src="image/Logo PB Branco.png" alt="Paulo Brito">
         <p>&copy; 2025 Paulo Brito. Todos os direitos reservados.</p>
     </footer>
-	
-    <!-- WhatsApp Float -->
+
     <a href="https://wa.me/+2389967724" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Modal para ampliar imagens -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
 
-    <script>
-        // Modal para ampliar imagens
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImage");
-        const portfolioImages = document.querySelectorAll(".portfolio-img");
-        const closeBtn = document.getElementsByClassName("close")[0];
-
-        portfolioImages.forEach(img => {
-            img.addEventListener("click", function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-            });
-        });
-
-        closeBtn.addEventListener("click", function() {
-            modal.style.display = "none";
-        });
-
-        // Fechar modal clicando fora da imagem
-        window.addEventListener("click", function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        });
-
-        // Smooth scroll para navegação
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
