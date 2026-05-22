@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <link rel="icon" type="image/png" href="image/Logo PB Branco.png">
+  <meta charset="UTF-8">
+  <title>Paulo Brito - Portofólio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --cinza-bg: #f5f5f5;
+      --cinza-texto: #555;
+      --dourado: #f0c14b;
+      --preto: #1a1a1a;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background-color: var(--cinza-bg);
+      color: var(--cinza-texto);
+      line-height: 1.6;
+    }
+    header {
+      background-color: var(--preto);
+      color: #fff;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    .header-content {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+    .header-content img {
+      height: 45px;
+    }
+    .voltar {
+      background-color: var(--dourado);
+      color: var(--preto);
+      padding: .5rem 1rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+    }
+    .voltar:hover {
+      background-color: #e0b143;
+    }
+    main {
+      margin-top: 80px;
+      padding: 2rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .trabalho-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .trabalho-header img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    }
+    .info h1 {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+      color: var(--preto);
+    }
+    .info .categoria {
+      display: inline-block;
+      background-color: var(--dourado);
+      color: var(--preto);
+      padding: .25rem .75rem;
+      border-radius: 20px;
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .meta {
+      margin-bottom: 1.5rem;
+    }
+    .meta p {
+      margin: .25rem 0;
+    }
+    .descricao {
+      margin-bottom: 2rem;
+    }
+    .ferramentas {
+      margin-bottom: 2rem;
+    }
+    .ferramentas span {
+      display: inline-block;
+      background-color: #e0e0e0;
+      padding: .25rem .5rem;
+      border-radius: 5px;
+      margin: .25rem .25rem 0 0;
+      font-size: .85rem;
+    }
+    .galeria {
+      margin-top: 3rem;
+    }
+    .galeria h2 {
+      margin-bottom: 1rem;
+      color: var(--preto);
+    }
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .galeria-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform .3s;
+    }
+    .galeria-grid img:hover {
+      transform: scale(1.03);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .9rem;
+      color: #777;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.85);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      margin-top: 2%;
+      border-radius: 8px;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    @media(max-width:768px){
+      .trabalho-header{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <img src="image/Logo PB Branco.png" alt="Paulo Brito">
+	<p class="subtitle">Informático, Web Designer & Criativo Gráfico e Visual</p>
+    <a class="voltar" href="index.html"><i class="fas fa-arrow-left"></i> Voltar</a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <!-- Conteúdo gerado via JS -->
+</main>
+
+<footer>
+        <img src="image/Logo PB Preto.png" alt="Paulo Brito" style="height: 40px; margin-bottom: 15px;">
+        <p>&copy; 2025 Paulo Brito. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Modal galeria -->
+<div id="modal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
+<script src="js/trabalhos.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  if (!id || !trabalhos[id]) {
+    document.getElementById('conteudo').innerHTML = `
+      <p style="text-align:center;font-size:1.2rem">Trabalho não encontrado.</p>
+      <p style="text-align:center"><a class="voltar" href="index.html">Voltar ao portfólio</a></p>`;
+  } else {
+    const t = trabalhos[id];
+    document.getElementById('conteudo').innerHTML = `
+      <section class="trabalho-header">
+        <img src="${t.imagens[0]}" alt="${t.titulo}">
+        <div class="info">
+          <h1>${t.titulo}</h1>
+          <span class="categoria">${t.categoria}</span>
+          <div class="meta">
+            <p><strong>Clientes:</strong> ${t.cliente}</p>
+          </div>
+          <div class="descricao">
+            <p>${t.descricao}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="galeria">
+        <h2>Galeria dos trabalhos</h2>
+        <div class="galeria-grid">
+          ${t.imagens.map((img,i)=>`
+            <img src="${img}" alt="${t.titulo} - imagem ${i+1}" onclick="abrirModal('${img}')">
+          `).join('')}
+        </div>
+      </section>
+    `;
+  }
+
+  // Modal
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  const span = document.getElementsByClassName('close')[0];
+
+  function abrirModal(src) {
+    modal.style.display = 'block';
+    modalImg.src = src;
+  }
+  span.onclick = () => modal.style.display = 'none';
+  window.onclick = e => { if (e.target == modal) modal.style.display = 'none'; }
+
+  // Ano footer
+  document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
